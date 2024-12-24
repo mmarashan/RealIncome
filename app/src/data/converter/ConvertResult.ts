@@ -1,3 +1,6 @@
+import { Year, Cost } from '../utils/Types'
+import ItemValue from '../items/ItemValue'
+
 class ConvertResult {
     itemFrom: ItemValue;
     itemTo: ItemValue;
@@ -32,3 +35,5 @@ class NoTableConvertResult extends ConvertResult {
         super(itemFrom, itemTo, year);
     }
 }
+
+export {ConvertResult, SuccessConvertResult, ErrorConvertResult, NoTableConvertResult}

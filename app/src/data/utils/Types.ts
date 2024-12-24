@@ -1,2 +1,2 @@
-type Year = number
-type Cost = number
+export type Year = number
+export type Cost = number

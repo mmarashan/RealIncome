@@ -1,4 +1,11 @@
-class Converter {
+import { TablesRepository } from '../table/TablesRepository'
+import Table from '../table/Table'
+import { Cost, Year } from '../utils/Types'
+import { Item } from '../items/Item'
+import ItemValue from '../items/ItemValue'
+import { ConvertResult, SuccessConvertResult, NoTableConvertResult, ErrorConvertResult } from '../../data/converter/ConvertResult'
+
+export class Converter {
     tablesRepository: TablesRepository
 
     constructor(tablesRepository: TablesRepository) {

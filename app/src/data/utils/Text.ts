@@ -16,3 +16,5 @@ class MultilanguageText {
        return this.translations.get(language)
     }
 }
+
+export {Lang, MultilanguageText}

@@ -1,7 +1,10 @@
-class Table {
+import { Cost, Year } from '../utils/Types'
+import { Item } from '../items/Item'
+
+export default class Table {
     itemA: Item
     itemB: Item
-    rates: Map<Year, number>
+    rates: Map<Year, Cost>
     yearFrom: Year
     yearTo: Year
 

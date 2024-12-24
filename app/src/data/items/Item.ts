@@ -16,3 +16,5 @@ class Item {
         this.description = description
     }
 }
+
+export {ItemType, Item}

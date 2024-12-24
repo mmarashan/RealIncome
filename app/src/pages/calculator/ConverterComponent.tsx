@@ -1,27 +1,32 @@
 import React, { useState, FC } from 'react';
+import { TablesRepository } from '../../data/table/TablesRepository'
+import { ItemsRepository } from '../../data/items/ItemsRepository'
+import { Converter } from '../../data/converter/Converter'
+import ItemValue from '../../data/items/ItemValue'
+import { SuccessConvertResult } from '../../data/converter/ConvertResult'
 
-type GoldPrice = { [year: number]: number };
+const Years = [2022, 2023, 2024]
 
-const yearToGoldPriceRub: GoldPrice = {
-  2020: 3000,
-  2021: 3500,
-  2022: 4000,
-  2023: 4500,
-  2024: 5000,
-};
-
-export const Converter: FC = () => {
+export const ConverterComponent: FC = () => {
   const [selectedYear, setSelectedYear] = useState<number>(2024);
   const [rubleAmount, setRubleAmount] = useState<string>("");
   const [goldAmount, setGoldAmount] = useState<string>("");
 
+  const tablesRepository = new TablesRepository();
+  const converter: Converter = new Converter(tablesRepository);
+
   function calculateGoldAmount() {
-    const selectedYearPrice = yearToGoldPriceRub[selectedYear];
-    if (selectedYearPrice) {
-      const goldAmount = Number(rubleAmount) / selectedYearPrice;
-      setGoldAmount(`${goldAmount.toFixed(2)} граммов`);
+
+    const convertResult = converter.convert(
+      new ItemValue(ItemsRepository.Rouble, Number(rubleAmount)), 
+      new ItemValue(ItemsRepository.COLD, 0),
+      selectedYear
+    )
+
+    if (convertResult instanceof SuccessConvertResult) {
+      setGoldAmount(`${convertResult.result.toFixed(2)} граммов`);
     } else {
-      console.error("Некорректный год выбран");
+      console.error("Что-то не то");
     }
   }
 
@@ -42,7 +47,7 @@ export const Converter: FC = () => {
       {/* Первая половина страницы */}
       <p>Выберите год:</p>
       <select value={selectedYear} onChange={(e) => onChangeYear(Number(e.target.value))} >
-        {Object.keys(yearToGoldPriceRub).map((year) => (
+        {Years.map((year) => (
           <option key={year} value={year}>
             {year}
           </option>

@@ -3,7 +3,7 @@ import type { FC } from 'react';
 
 import { Link } from '@/components/Link/Link.tsx';
 import { Page } from '@/components/Page.tsx';
-import { Converter } from "./Converter.tsx"
+import { ConverterComponent } from "./ConverterComponent.tsx"
 
 
 export const Calculator: FC = () => {
@@ -13,7 +13,7 @@ export const Calculator: FC = () => {
         <Section
           header="Fin Calc"
           footer="Convert you money to banana">
-          <Converter />
+          <ConverterComponent />
         </Section>
       </List>
     </Page>
