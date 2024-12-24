@@ -30,5 +30,3 @@ class Table {
         return [min, max];
     }
 }
-
-type Year = number
