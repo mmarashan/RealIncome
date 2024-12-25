@@ -5,7 +5,7 @@ import { Item } from '../items/Item'
 import ItemValue from '../items/ItemValue'
 import { ConvertResult, SuccessConvertResult, NoTableConvertResult, ErrorConvertResult } from '../../data/converter/ConvertResult'
 
-export class Converter {
+export default class Converter {
     tablesRepository: TablesRepository
 
     constructor(tablesRepository: TablesRepository) {

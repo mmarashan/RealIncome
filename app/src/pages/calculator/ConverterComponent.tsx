@@ -1,7 +1,7 @@
 import React, { useState, FC } from 'react';
-import { TablesRepository } from '../../data/table/TablesRepository'
-import { ItemsRepository } from '../../data/items/ItemsRepository'
-import { Converter } from '../../data/converter/Converter'
+import TablesRepository from '../../data/table/TablesRepository'
+import ItemsRepository from '../../data/items/ItemsRepository'
+import Converter from '../../data/converter/Converter'
 import ItemValue from '../../data/items/ItemValue'
 import { SuccessConvertResult } from '../../data/converter/ConvertResult'
 
@@ -27,6 +27,7 @@ export const ConverterComponent: FC = () => {
       setGoldAmount(`${convertResult.result.toFixed(2)} граммов`);
     } else {
       console.error("Что-то не то");
+      console.error(convertResult);
     }
   }
 

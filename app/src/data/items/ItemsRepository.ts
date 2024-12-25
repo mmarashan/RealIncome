@@ -1,7 +1,7 @@
 import {Item, ItemType} from './Item'
 import { MultilanguageText, Lang } from '../utils/Text'
 
-export class ItemsRepository {
+export default class ItemsRepository {
 
     static Rouble: Item = new Item(
         ItemType.CURRENCY,

@@ -1,7 +1,7 @@
 import Table from "./Table"
-import { ItemsRepository } from '../items/ItemsRepository'
+import ItemsRepository from '../items/ItemsRepository'
 
-export class TablesRepository {
+export default class TablesRepository {
 
     UsdToRubTable: Table = new Table(
         ItemsRepository.USD,

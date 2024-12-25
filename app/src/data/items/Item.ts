@@ -1,3 +1,5 @@
+import { MultilanguageText } from '../utils/Text'
+
 enum ItemType {
     CURRENCY,
     REALTY,
